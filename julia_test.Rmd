@@ -1,0 +1,35 @@
+---
+title: "Julia tutorial"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(JuliaCall)
+julia_markdown_setup("C:\\Users\\Bonnell-William\\AppData\\Local\\Programs\\Julia\\Julia-1.4.2\\bin")
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{julia}
+using DelimitedFiles
+using CSV #for csv imports CSV.read() and CSV.write()
+using XLSX #for xlsx imports XLSX.readdata()
+#specify cell range of xlsx file to speed it up
+
+
+bea = CSV.read("H:/New fldr/bea_tidy.csv");
+
+```
+
+
+```{julia}
+
+@show typeof(bea)
+println(names(bea))
+
+```
