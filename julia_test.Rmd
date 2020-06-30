@@ -7,6 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 library(JuliaCall)
 julia_markdown_setup("C:\\Users\\Bonnell-William\\AppData\\Local\\Programs\\Julia\\Julia-1.4.2\\bin")
+julia_setup("C:\\Users\\Bonnell-William\\AppData\\Local\\Programs\\Julia\\Julia-1.4.2\\bin")
 ```
 
 ## R Markdown
@@ -17,12 +18,15 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{julia}
 using DelimitedFiles
+using DataFrames
 using CSV #for csv imports CSV.read() and CSV.write()
 using XLSX #for xlsx imports XLSX.readdata()
 #specify cell range of xlsx file to speed it up
 
 
-bea = CSV.read("H:/New fldr/bea_tidy.csv");
+bea = CSV.read("bea_tidy.csv");
+
+#D = Dataframe(x...) will decide column names for you, equivalentt to DataFrame(G[1], G[2])
 
 ```
 
@@ -31,5 +35,10 @@ bea = CSV.read("H:/New fldr/bea_tidy.csv");
 
 @show typeof(bea)
 println(names(bea))
+
+bea[2][1:10]
+
+by(bea,:year,size)
+
 
 ```
