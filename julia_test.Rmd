@@ -6,6 +6,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(JuliaCall)
+#set up link at top of r script
 julia_markdown_setup("C:\\Users\\Bonnell-William\\AppData\\Local\\Programs\\Julia\\Julia-1.4.2\\bin")
 julia_setup("C:\\Users\\Bonnell-William\\AppData\\Local\\Programs\\Julia\\Julia-1.4.2\\bin")
 ```
